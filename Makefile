@@ -1,14 +1,23 @@
 CC=gcc
-CFLAGS=-Wall -Wextra
+CFLAGS=-Wall -Wextra -Werror -fstack-protector-all -O2
+
+PROG=brightness
+BIN=/usr/bin
 
 .PHONY: all
-all: brightness
+all: $(PROG)
 
-brightness: brightness.o config.h
-	$(CC) -o $@ $<
-	sudo chown root:root $@
-	sudo chmod u-w+s $@
+.PHONY: install
+install: $(PROG)
+	install -m 4555 -o root -g root -s $(PROG) $(BIN)
+
+.PHONY: uninstall
+uninstall:
+	rm -f $(BIN)/$(PROG)
 
 .PHONY: clean
 clean:
-	rm -f *.o brightness
+	rm -f *.o $(PROG)
+
+$(PROG): $(PROG).o config.h
+	$(CC) -o $@ $<

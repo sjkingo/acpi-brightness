@@ -11,8 +11,10 @@ Installation
 ------------
 
 1. Modify `config.h` if needed.
-2. Compile using `make` (sudo access is required to setuid root the binary).
-3. Run as below.
+2. `$ make` to compile.
+3. `# make install` to install the binary to `/usr/bin`.
+
+You may remove the program by running `# make uninstall`.
 
 Usage
 -----
