@@ -84,9 +84,7 @@ int main(int argc, char **argv) {
         set_brightness(level);
         return 0;
     } else {
-        fprintf(stderr, "Usage: %s [level-to-set]\n" \
-                        "       if no argument is given, displays current brightness level\n",
-                        argv[0]);
+        fprintf(stderr, "Usage: %s [<value>|up|down|max|min]\n", argv[0]);
         return 1;
     }
 }
