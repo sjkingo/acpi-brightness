@@ -6,8 +6,7 @@
 #include <sys/fcntl.h>
 #include <unistd.h>
 
-#define BRIGHTNESS_DEV "/sys/class/backlight/acpi_video0/brightness"
-#define MAX_BRIGHTNESS_DEV "/sys/class/backlight/acpi_video0/max_brightness"
+#include "config.h"
 
 static int get_brightness(void) {
     int fd = open(BRIGHTNESS_DEV, O_RDONLY);
@@ -30,6 +29,12 @@ static int get_brightness(void) {
 }
 
 static void set_brightness(int level) {
+    if (level < MIN || level > MAX) {
+        fprintf(stderr, "Error: brightness level not in the range [%d..%d]\n",
+                MIN, MAX);
+        exit(2);
+    }
+
     int fd = open(BRIGHTNESS_DEV, O_WRONLY);
     if (fd < 0) {
         perror("open(" BRIGHTNESS_DEV ")");
