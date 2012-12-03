@@ -17,8 +17,9 @@ Installation
 Usage
 -----
 
-$ brightness
-    Displays current brightness value.
+    $ brightness
+
+Displays current brightness value.
 
 $ brightness [MIN-MAX]
     Sets the brightness to the given value (must be between MIN and MAX, as
