@@ -21,11 +21,11 @@ To display the current brightness value:
 
     $ brightness
 
-To set the current brightness to a given value (note that this value must be in
+To set the current brightness to a given `<value>` (note that this value must be in
 the range [`MIN`..`MAX`], which is configured in `config.h`. By default this is
-[0..10]):
+`[0..10]`):
 
-    $ brightness value
+    $ brightness <value>
 
 To increase the current brightness level by 1:
 
@@ -34,3 +34,11 @@ To increase the current brightness level by 1:
 To decrease the current brightness level by 1:
 
     $ brightness down
+
+To set the brightest level:
+
+    $ brightness max
+
+To set the dimmest level:
+
+    $ brightness min

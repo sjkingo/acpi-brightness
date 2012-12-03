@@ -63,7 +63,24 @@ int main(int argc, char **argv) {
         printf("%d\n", level);
         return 0;
     } else if (argc == 2) {
-        int level = strtol(argv[1], NULL, 10);
+        int level;
+        if (strcmp(argv[1], "up") == 0) {
+            level = get_brightness() + 1;
+            if (level > MAX) {
+                return 0;
+            }
+        } else if (strcmp(argv[1], "down") == 0) {
+            level = get_brightness() - 1;
+            if (level < MIN) {
+                return 0;
+            }
+        } else if (strcmp(argv[1], "max") == 0) {
+            level = MAX;
+        } else if (strcmp(argv[1], "min") == 0) {
+            level = MIN;
+        } else {
+            level = strtol(argv[1], NULL, 10);
+        }
         set_brightness(level);
         return 0;
     } else {
