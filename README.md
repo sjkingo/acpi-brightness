@@ -17,16 +17,20 @@ Installation
 Usage
 -----
 
+To display the current brightness value:
+
     $ brightness
 
-Displays current brightness value.
+To set the current brightness to a given value (note that this value must be in
+the range [`MIN`..`MAX`], which is configured in `config.h`. By default this is
+[0..10]):
 
-$ brightness [MIN-MAX]
-    Sets the brightness to the given value (must be between MIN and MAX, as
-    specified in `config.h`. By default this is 0-10.)
+    $ brightness value
 
-$ brightness up
-    Increases the current brightness level by one.
+To increase the current brightness level by 1:
 
-$ brightness down
-    Decreases the current brightness level by one.
+    $ brightness up
+
+To decrease the current brightness level by 1:
+
+    $ brightness down
