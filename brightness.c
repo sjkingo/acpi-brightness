@@ -44,7 +44,7 @@ static void set_brightness(int level) {
 
     char buf[64];
     memset(buf, 0, sizeof(buf));
-    int len = sprintf(buf, "%d", level);
+    int len = snprintf(buf, sizeof(buf), "%d", level);
     if (write(fd, buf, len) < 0) {
         int e = errno;
         if (e == EINVAL) {
