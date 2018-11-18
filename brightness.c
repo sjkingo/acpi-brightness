@@ -65,12 +65,12 @@ int main(int argc, char **argv) {
     } else if (argc == 2) {
         int level;
         if (strcmp(argv[1], "up") == 0) {
-            level = get_brightness() + 1;
+            level = get_brightness() + STEP;
             if (level > MAX) {
                 return 0;
             }
         } else if (strcmp(argv[1], "down") == 0) {
-            level = get_brightness() - 1;
+            level = get_brightness() - STEP;
             if (level < MIN) {
                 return 0;
             }
